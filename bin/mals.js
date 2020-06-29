@@ -11,7 +11,7 @@ const download = require("./../util/download");
 const templateConfig = require("./../config/template");
 const compileJson = require("./../util/compile");
 const chalk = require("chalk");
-const log = log;
+const log = console.log;
 let selectTemplateName, selectTemplate;
 
 program
@@ -28,6 +28,11 @@ program
         }
 
         const answers = await inquirer.prompt(promptConfig);
+        const isCanUse = await check(answers.projectName);
+        if(!isCanUse){
+            log(chalk.red("文件夹名称已存在"));
+            return;
+        }
         selectTemplateName = answers[selectTemplateName];
         selectTemplate =  templateConfig[answers['selectTemplateName']];
         projectName = projectName||answers['projectName'];
