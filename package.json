@@ -1,11 +1,11 @@
 {
   "name": "mals-cli",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "脚手架",
   "main": "bin/mals.js",
   "author": "erdong",
   "license": "ISC",
-  "repository": "",
+  "repository": "https://github.com/erdong0604/mals-cli",
   "bin": {
     "mals": "bin/mals.js"
   },
